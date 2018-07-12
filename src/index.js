@@ -1,16 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-function Person(props){
-	return(
-		<div>
-			<h1>Name: {props.name} {props.surname}</h1>
-			<p>Status: {props.status}</p>
-			<p>Occupation: {props.occupation}</p>
-		</div>
-		);
-};
-
 let models = [
 	{
 		name: "Anja",
@@ -32,10 +22,40 @@ let models = [
 		occupation: "model",
 		status: "instagirl"
 	}
-]
+];
 
+function Person(props){
+	return(
+		<div>
+			<h1>Name: {props.name} {props.surname}</h1>
+			<p>Status: {props.status}</p>
+			<p>Occupation: {props.occupation}</p>
+		</div>
+		);
+};
 
+function Button(props){
+	return(
+		<div>
+			<button value={props.name} onclick = {handleButton(props.number)}></button>
+		</div>
+	)
+}
 
-console.log(models[0]);
+function handleButton(number){
+	ReactDOM.render(<Person name={models[number].name}
+						surname={models[number].surname}
+						occupation={models[number].occupation}
+						status={models[number].status}
+						/>, document.getElementById('app'));
+}
 
-ReactDOM.render(<Person name="Ann"/>, document.getElementById('app'));
+let buttons = (
+		<div>
+			<Button name = "Anja" number = {0}/>
+			<Button name = "Raquel" number = {1}/>
+			<Button name = "Gigi" numebr = {2}/>
+		</div>
+	)
+
+ReactDOM.render(buttons, document.getElementById('app'));
