@@ -5,23 +5,37 @@ function Person(props){
 	return(
 		<div>
 			<h1>Name: {props.name} {props.surname}</h1>
-			<p>Age: {props.age}</p>
+			<p>Status: {props.status}</p>
 			<p>Occupation: {props.occupation}</p>
 		</div>
 		);
-}
+};
 
-let people = (
-	<div>
-		<Person name="Blazej" 
-						surname="Wielk" 
-						age="26" 
-						occupation="UX designer"/>
-		<Person name="Joni" 
-						surname="Mitchell" 
-						age="76"
-						occupation="Composer"/>
-	</div>
-)
+let models = [
+	{
+		name: "Anja",
+		surname: "Rubik",
+		occupation: "model",
+		status: "icon"
+	},
 
-ReactDOM.render(people, document.getElementById('app'));
+	{
+		name: "Raquel",
+		surname: "Zimmermann",
+		occupation: "model",
+		status: "new icon"
+	},
+
+	{
+		name: "Gigi",
+		surname: "Hadid",
+		occupation: "model",
+		status: "instagirl"
+	}
+]
+
+
+
+console.log(models[0]);
+
+ReactDOM.render(<Person name="Ann"/>, document.getElementById('app'));
